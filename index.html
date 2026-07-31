@@ -4,10 +4,20 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <link rel="stylesheet" href="/css/style.css">
+            <!-- BOOTSTRAP -->
+            <link
+                href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+                rel="stylesheet"
+            />
+            <link
+                rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+            />
+            <link rel="stylesheet" href="styles.css" />
+            <link rel="stylesheet" href="/css/style.css">
     </head>
     <body>
-        <header class="container">
+         <header class="container">
             <nav class="navbar">
                 <h1 class="titulo">Lorem</h1>
                 <a href="" class="logo-carrito">
@@ -15,10 +25,221 @@
                 </a>
             </nav>
         </header>
-        <section class="HERO">
-            <img src="" alt="" />
-            <p></p>
+      
+       <button class="btn-cart" type="button" data-bs-toggle="offcanvas" data-bs-target="#carritoLateral"><i
+            class="bi bi-cart"></i> </button>
+    <div class="offcanvas offcanvas-end " id="carritoLateral" style="width: 500px">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Pedidos</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <div id="listaCarrito">
+                <div class="cart-item d-flex align-items-center" py="3" data-precio="20000" data-contida="1">
+                    <div class="flex-grow-1">
+                        <h6 class="mb-1"> Hamburguesa 200gr</h6>
+                        <p class="mb-2 text-muted small">$18.900 c/u</p>
+                        <div class="cantidad-selector">
+                            <button class="btn-menos">−</button>
+                            <span class="px-2" class="cantidad">1</span>
+                            <button class="btn-mas">+</button>
+                            <div>
+                                <button class="btn-quitar - mb-2"> <i class="bi bi-trash3"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pt-3 mt-2 border-top">
+            <div class="d-flex justify-content-between mb-2">
+                <span class="text-muted">Subtotal</span>
+                <span id="subtotal" class="fw-semibold">$0</span>
+            </div>
+            <button class="btn btn-checkout w-100 text-white">Ir a pagar</button>
+        </div>
+    </div>
+        <section class="burger-hero position-relative overflow-visible py-5">
+            <div class="container py-lg-5">
+                <div class="row align-items-center g-5">
+                    <div class="col-12 col-lg-5 order-2 order-lg-1">
+                        <div class="hero-content">
+                            <h1 class="display-3 fw-bold text-dark mb-3">
+                                <span
+                                    class="d-block fst-italic fw-normal font-cursiva"
+                                    >¡Comida rápida</span
+                                >
+                                A LOS MEJORES PRECIOS!
+                            </h1>
+
+                            <p
+                                class="text-secondary-custom mb-3 fs-5 fw-bolder"
+                            >
+                                Disfruta de tus comidas favoritas con
+                                ingredientes frescos y combos increíbles,
+                                directo hasta tu puerta.
+                            </p>
+
+                            <div
+                                class="mb-3 d-flex align-items-center justify-content-center"
+                            >
+                                <span
+                                    class="d-block text-uppercase fw-bold fs-4"
+                                    >¡Precios desde los
+                                    <strong
+                                        class="fw-bolder text-secondary-custom fs-1"
+                                    >
+                                        $5.000!</strong
+                                    >
+                                </span>
+                            </div>
+
+                            <div
+                                class="d-flex w-100 align-items-center justify-content-center"
+                            >
+                                <a
+                                    class="btn btn-dark text-secondary-custom rounded-pill px-5 py-4 fw-bold text-uppercase fs-6 btn-custom"
+                                >
+                                    ¡Ordenar ahora!
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Derecha -->
+                    <div
+                        class="col-12 col-lg-7 order-1 order-lg-2 position-relative text-center"
+                    >
+                        <div class="burger-img-container">
+                            <!-- La Hamburguesa PNG -->
+                            <img
+                                src="https://cdn.creazilla.com/cliparts/70467/burger-clipart-lg.png"
+                                alt="Delicious Burger"
+                                class="img-fluid burger-image"
+                            />
+
+                            <figcaption
+                                class="burger-badge position-absolute rounded-circle d-flex flex-column justify-content-center align-items-center"
+                            >
+                                <span class="fs-4 fs-lg-1 fw-bolder"
+                                    >¡SOLO POR HOY!</span
+                                >
+                            </figcaption>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
+        <div class="hamburguesa" id="hamburguesa">
+        <div class="card" style="width: 18rem;">
+            <img src="https://www.burgerfi.com/wp-content/uploads/2025/01/classic-meat-burger-with-fries-scaled.webp"
+                class="card-img-top" alt="Hamburguesa">
+            <div class="card-body">
+                <h5 class="card-title">Hamburguesa de la casa</h5>
+                <p class="card-text">Una jugosa carne de res a la parrilla con queso cheddar tibio y derretido, cubierta
+                    con lechuga fresca y tomate, dentro de un pan brioche suave y ligeramente tostado.</p>
+                <a href="#" class="btn btn-primary">$50.000</a>
+            </div>
+        </div>
+        <div class="card " style="width: 18rem;">
+            <img src="https://chefeel.com/chefgeneralfiles/2021/07/front-view-burger-on-stand-scaled.jpg"
+                class="card-img-top" alt="Hamburguesa BBQ">
+            <div class="card-body">
+                <h5 class="card-title">Hamburguesa BBQ Bacon</h5>
+                <p class="card-text">Carne de res 100% a la parrilla con tiras de tocineta crujiente, queso americano,
+                    cebolla caramelizada y abundante salsa BBQ, servida en pan artesanal.</p>
+                <a href="#" class="btn btn-primary">$34.000</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWWWKQbK9tNrpyr9OmOl-IHfWi7G9YRkco7zDKuJc4aw&s=10"
+                class="card-img-top" alt="Hamburguesa Doble Cheese">
+            <div class="card-body">
+                <h5 class="card-title">Hamburguesa Doble Cheese</h5>
+                <p class="card-text">Dos carnes de res perfectamente selladas, doble porción de queso cheddar fundido,
+                    pepinillos, cebolla y nuestra salsa especial para los amantes del queso.</p>
+                <a href="#" class="btn btn-primary">$38.000</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="pizza" id="pizza">
+      <div class="card " style="width: 18rem;">
+            <img src="https://cdn.blog.paulinacocina.net/wp-content/uploads/2024/10/receta-pizza-de-pepperoni-facil-1729847335.jpg"
+                class="card-img-top " alt="Pizza">
+            <div class="card-body">
+                <h5 class="card-title">Pizza de Pepperoni</h5>
+                <p class="card-text">Su base de masa crujiente, salsa de tomate roja, queso mozzarella fundido y rodajas
+                    de un embutido especiado de cerdo y res.</p>
+                <a href="#" class="btn btn-primary">$32.500</a>
+            </div>
+        </div>
+        <div class="card " style="width: 18rem;">
+            <img src="https://snapcalorie-webflow-website.s3.us-east-2.amazonaws.com/media/recipe_pics_v2/medium/hawaiian_pizza.jpg"
+                class="card-img-top " alt="Pizza Hawaiana">
+            <div class="card-body">
+                <h5 class="card-title">Pizza Hawaiana</h5>
+                <p class="card-text">Deliciosa combinación de queso mozzarella, jamón y trozos de piña fresca sobre una masa crujiente con salsa de tomate tradicional.</p>
+                <a href="#" class="btn btn-primary">$34.000</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="https://www.infobae.com/resizer/v2/BTS3SYGZVRCNNJME5QYF63XBTA.jpg?auth=7df3445b0c3a9afe65c363e716c13baae1cef118de4a6f2c9e3e402b9faebf64&smart=true&width=1200&height=1200&quality=85"
+                class="card-img-top" alt="Pizza Cuatro Quesos">
+            <div class="card-body">
+                <h5 class="card-title">Pizza Cuatro Quesos</h5>
+                <p class="card-text">Una mezcla irresistible de mozzarella, parmesano, cheddar y queso azul, horneada sobre una masa artesanal con un ligero toque de orégano.</p>
+                <a href="#" class="btn btn-primary">$36.000</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="bebida" id="bebida">
+      <div class="card " style="width: 18rem;">
+            <img src="https://whiskedawaykitchen.com/wp-content/uploads/2021/05/limonada-de-coco-4-scaled.jpg"
+                class="card-img-top" alt="Limonada de Coco">
+            <div class="card-body">
+                <h5 class="card-title">Limonada de Coco</h5>
+                <p class="card-text">Refrescante mezcla de limón natural, crema de coco y hielo triturado, perfecta para acompañar cualquier plato del menú.</p>
+                <a href="#" class="btn btn-primary">$12.500</a>
+            </div>
+        </div>
+        <div class="card " style="width: 18rem;">
+            <img src="https://sazonsula.com/wp-content/uploads/2022/06/receta-malteada-de-cafe-sazon-sula.jpg"
+                class="card-img-top" alt="Malteada de Chocolate">
+            <div class="card-body">
+                <h5 class="card-title">Malteada de Chocolate</h5>
+                <p class="card-text">Cremosa malteada preparada con helado de chocolate, leche fría y crema batida, decorada con salsa de chocolate.</p>
+                <a href="#" class="btn btn-primary">$16.000</a>
+            </div>
+        </div>
+     
+
+    </div>
+ <div class="postres" id="postres">
+      <div class="card " style="width: 18rem;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWnaMap4fRHw3wmBfKX6QA3u18zUpgHHh6gUGxgCDQAeoB8t8g8GPtQUyC&s=10"
+                class="card-img-top" alt="Cheesecake de Fresa">
+            <div class="card-body">
+                <h5 class="card-title">Cheesecake de Fresa</h5>
+                <p class="card-text">Suave pastel de queso sobre una base de galleta de mantequilla, cubierto con una deliciosa salsa de fresas naturales.</p>
+                <a href="#" class="btn btn-primary">$18.900</a>
+            </div>
+        </div>
+        <div class="card " style="width: 18rem;">
+            <img src="https://www.modernhoney.com/wp-content/uploads/2024/10/Tres-Leches-Cake-18-500x500.jpg"
+                class="card-img-top" alt="Patel tres leches">
+            <div class="card-body">
+                <h5 class="card-title">Pastel Tres Leches</h5>
+                <p class="card-text">Esponjoso bizcocho bañado en una deliciosa mezcla de leche condensada, leche evaporada y crema de leche, cubierto con una suave capa de crema batida y decorado con un toque de canela, logrando un postre dulce, fresco e irresistible.</p>
+                <a href="#" class="btn btn-primary">$20.900</a>
+            </div>
+        </div>
+     
+
+    </div>
+ 
         <footer class="footer">
             <div class="footer__contenedor">
 
@@ -52,5 +273,6 @@
                 <p>&copy; 2026 Fast Food Bia. Todos los derechos reservados.</p>
             </div>
         </footer>
-    </body>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
