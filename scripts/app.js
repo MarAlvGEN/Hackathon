@@ -90,7 +90,7 @@ const productos = [
             "Esponjoso bizcocho bañado en una deliciosa mezcla de leche condensada, leche evaporada y crema de leche, cubierto con crema batida.",
         imagen: "https://www.modernhoney.com/wp-content/uploads/2024/10/Tres-Leches-Cake-18-500x500.jpg",
     },
-        {
+    {
         id: "po3",
         nombre: "Creme Brulee",
         categoria: "postres",
@@ -124,6 +124,7 @@ let filtroActivo = null;
 
 // Inicializar la aplicación
 document.addEventListener("DOMContentLoaded", () => {
+    carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     mostrarProductos(productos);
     configurarFiltros();
     renderizarCarrito(); // Carga el estado inicial vacío
@@ -243,6 +244,7 @@ listaCarrito.addEventListener("click", (e) => {
 });
 
 function renderizarCarrito() {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
     listaCarrito.innerHTML = "";
 
     if (carrito.length === 0) {
