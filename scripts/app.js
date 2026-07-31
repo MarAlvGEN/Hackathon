@@ -275,3 +275,5 @@ function configurarFiltros() {
 function removerClaseActiva() {
     botonesFiltro.forEach((b) => b.classList.remove("active"));
 }
+
+addEventListener(click, btn-agrgar)
