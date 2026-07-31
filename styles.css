@@ -1,0 +1,41 @@
+.hamburguesa {
+    display: flex;
+    justify-content: center; 
+    gap: 20px;            
+    flex-wrap: wrap;   
+}
+.pizza {
+    display: flex;
+    justify-content: center; 
+    gap: 20px;            
+    flex-wrap: wrap;  
+
+}
+.bebida {
+    display: flex;
+    justify-content: center; 
+    gap: 20px;            
+    flex-wrap: wrap;  
+
+}
+.postres {
+    display: flex;
+    justify-content: center; 
+    gap: 20px;            
+    flex-wrap: wrap;  
+
+}
+
+.card {
+    background-color: ;
+}
+.btn.btn-primary{
+    color: black;
+    background-color: rgb(247, 189, 65);
+    border-color:rgb(212, 160, 28) ;
+}
+.btn.btn-primary:hover{
+    color: black;
+    background-color: rgb(247, 189, 65);
+    border-color:rgb(212, 160, 28) ;
+}
