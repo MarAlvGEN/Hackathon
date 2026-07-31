@@ -92,22 +92,25 @@ const productos = [
     },
 ];
 
-// Estado global del carrito
 let carrito = [];
+const PRECIO_DOMICILIO = 3500;
 
 // Elementos del DOM
 const contenedorProductos = document.getElementById("contenedorProductos");
 const listaCarrito = document.getElementById("listaCarrito");
 const elementoSubtotal = document.getElementById("subtotal");
+const elementoTotal = document.getElementById("total");
 const botonesFiltro = document.querySelectorAll(".filtro");
+
+let filtroActivo = null;
 
 // Inicializar la aplicación
 document.addEventListener("DOMContentLoaded", () => {
     mostrarProductos(productos);
     configurarFiltros();
+    renderizarCarrito(); // Carga el estado inicial vacío
 });
 
-// 2. Función para pintar las tarjetas dinámicamente
 function mostrarProductos(lista) {
     contenedorProductos.innerHTML = "";
 
@@ -135,113 +138,6 @@ function mostrarProductos(lista) {
     });
 }
 
-// 3. Filtrado por categorías
-function configurarFiltros() {
-    botonesFiltro.forEach((boton) => {
-        boton.addEventListener("click", (e) => {
-            const categoria = e.currentTarget.getAttribute("data-categoria");
-
-            if (categoria === "todas") {
-                mostrarProductos(productos);
-            } else {
-                const filtrados = productos.filter(
-                    (p) => p.categoria === categoria,
-                );
-                mostrarProductos(filtrados);
-            }
-        });
-    });
-}
-
-// 4. Delegación de eventos para agregar al carrito
-contenedorProductos.addEventListener("click", (e) => {
-    if (e.target.classList.contains("btn-agregar")) {
-        const id = e.target.getAttribute("data-id");
-        const productoEncontrado = productos.find((p) => p.id === id);
-        agregarAlCarrito(productoEncontrado);
-    }
-});
-
-function agregarAlCarrito(producto) {
-    const existe = carrito.find((item) => item.id === producto.id);
-
-    if (existe) {
-        existe.cantidad++;
-    } else {
-        carrito.push({ ...producto, cantidad: 1 });
-    }
-
-    renderizarCarrito();
-}
-
-// 5. Controles dentro del carrito lateral
-listaCarrito.addEventListener("click", (e) => {
-    const id = e.target.closest("[data-id]")?.getAttribute("data-id");
-    if (!id) return;
-
-    if (e.target.classList.contains("btn-mas")) {
-        const item = carrito.find((p) => p.id === id);
-        if (item) item.cantidad++;
-    } else if (e.target.classList.contains("btn-menos")) {
-        const item = carrito.find((p) => p.id === id);
-        if (item) {
-            item.cantidad--;
-            if (item.cantidad === 0) {
-                carrito = carrito.filter((p) => p.id !== id);
-            }
-        }
-    } else if (e.target.closest(".btn-quitar")) {
-        carrito = carrito.filter((p) => p.id !== id);
-    }
-
-    renderizarCarrito();
-});
-
-// 6. Actualización visual de la barra lateral y subtotal
-function renderizarCarrito() {
-    listaCarrito.innerHTML = "";
-
-    if (carrito.length === 0) {
-        listaCarrito.innerHTML =
-            '<p class="text-muted text-center py-4">Tu carrito está vacío</p>';
-        elementoSubtotal.textContent = "$0";
-        return;
-    }
-
-    let subtotal = 0;
-
-    carrito.forEach((prod) => {
-        subtotal += prod.precio * prod.cantidad;
-
-        const itemDiv = document.createElement("div");
-        itemDiv.className =
-            "cart-item d-flex align-items-center py-3 border-bottom";
-        itemDiv.setAttribute("data-id", prod.id);
-
-        itemDiv.innerHTML = `
-            <div class="flex-grow-1">
-                <h6 class="mb-1">${prod.nombre}</h6>
-                <p class="mb-2 text-muted small">$${prod.precio.toLocaleString("es-CO")} c/u</p>
-                <div class="d-flex align-items-center justify-content-between">
-                    <div class="border rounded d-flex align-items-center">
-                        <button class="btn btn-sm btn-menos border-0 px-2">−</button>
-                        <span class="px-2 fw-bold">${prod.cantidad}</span>
-                        <button class="btn btn-sm btn-mas border-0 px-2">+</button>
-                    </div>
-                    <button class="btn btn-sm btn-outline-danger btn-quitar">
-                        <i class="bi bi-trash3"></i>
-                    </button>
-                </div>
-            </div>
-        `;
-        listaCarrito.appendChild(itemDiv);
-    });
-
-    elementoSubtotal.textContent = `$${subtotal.toLocaleString("es-CO")}`;
-}
-
-let filtroActivo = null;
-
 function configurarFiltros() {
     botonesFiltro.forEach((boton) => {
         boton.addEventListener("click", (e) => {
@@ -264,7 +160,7 @@ function configurarFiltros() {
                 e.currentTarget.classList.add("active");
 
                 const filtrados = productos.filter(
-                    (p) => p.categoria === categoria
+                    (p) => p.categoria === categoria,
                 );
                 mostrarProductos(filtrados);
             }
@@ -276,4 +172,101 @@ function removerClaseActiva() {
     botonesFiltro.forEach((b) => b.classList.remove("active"));
 }
 
-addEventListener(click, btn-agrgar)
+contenedorProductos.addEventListener("click", (e) => {
+    if (e.target.classList.contains("btn-agregar")) {
+        const id = e.target.getAttribute("data-id");
+        const productoEncontrado = productos.find((p) => p.id === id);
+        agregarAlCarrito(productoEncontrado);
+
+        // Alerta en el botón al dar clic
+        const boton = e.target;
+        boton.textContent = "¡Agregado! ✓";
+        boton.classList.replace("btn-primary", "btn-success");
+
+        setTimeout(() => {
+            boton.textContent = "Agregar";
+            boton.classList.replace("btn-success", "btn-primary");
+        }, 1000);
+    }
+});
+
+function agregarAlCarrito(producto) {
+    const existe = carrito.find((item) => item.id === producto.id);
+
+    if (existe) {
+        existe.cantidad++;
+    } else {
+        carrito.push({ ...producto, cantidad: 1 });
+    }
+
+    renderizarCarrito();
+}
+
+listaCarrito.addEventListener("click", (e) => {
+    const id = e.target.closest("[data-id]")?.getAttribute("data-id");
+    if (!id) return;
+
+    if (e.target.classList.contains("btn-mas")) {
+        const item = carrito.find((p) => p.id === id);
+        if (item) item.cantidad++;
+    } else if (e.target.classList.contains("btn-menos")) {
+        const item = carrito.find((p) => p.id === id);
+        if (item) {
+            item.cantidad--;
+            if (item.cantidad === 0) {
+                carrito = carrito.filter((p) => p.id !== id);
+            }
+        }
+    } else if (e.target.closest(".btn-quitar")) {
+        carrito = carrito.filter((p) => p.id !== id);
+    }
+
+    renderizarCarrito();
+});
+
+function renderizarCarrito() {
+    listaCarrito.innerHTML = "";
+
+    if (carrito.length === 0) {
+        listaCarrito.innerHTML =
+            '<p class="text-muted text-center py-4">Tu carrito está vacío</p>';
+        elementoSubtotal.textContent = "$0";
+        if (elementoTotal) elementoTotal.textContent = "$0";
+        return;
+    }
+
+    let subtotal = 0;
+
+    carrito.forEach((prod) => {
+        subtotal += prod.precio * prod.cantidad;
+
+        const itemDiv = document.createElement("div");
+        itemDiv.className =
+            "cart-item d-flex align-items-center justify-content-between py-3 border-bottom";
+        itemDiv.setAttribute("data-id", prod.id);
+
+        itemDiv.innerHTML = `
+            <div class="d-flex align-items-center gap-3 flex-grow-1">
+                <div>
+                    <h6 class="mb-1 fw-semibold text-dark" style="font-size: 0.95rem;">${prod.nombre}</h6>
+                    <p class="mb-2 text-muted" style="font-size: 0.85rem;">$${prod.precio.toLocaleString("es-CO")} c/u</p>
+                    <div class="cantidad-selector d-flex align-items-center border rounded-pill px-2 py-1" style="width: fit-content;">
+                        <button class="btn-menos border-0 bg-transparent text-danger fw-bold p-0 me-2" style="font-size: 0.8rem;">−</button>
+                        <span class="cantidad px-1 fw-semibold" style="font-size: 0.85rem;">${prod.cantidad}</span>
+                        <button class="btn-mas border-0 bg-transparent text-danger fw-bold p-0 ms-2" style="font-size: 0.8rem;">+</button>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-quitar border-0 bg-transparent text-muted p-0">
+                <i class="bi bi-trash3 fs-5"></i>
+            </button>
+        `;
+        listaCarrito.appendChild(itemDiv);
+    });
+
+    elementoSubtotal.textContent = `$${subtotal.toLocaleString("es-CO")}`;
+    if (elementoTotal) {
+        const total = subtotal + PRECIO_DOMICILIO;
+        elementoTotal.textContent = `$${total.toLocaleString("es-CO")}`;
+    }
+}
