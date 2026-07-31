@@ -56,15 +56,4 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-## Instalación y Ejecución Local
-
-1. Clonar el repositorio: git clone
-   https://github.com/tu-usuario/tu-repositorio.git
-
-1. Navegar al directorio del proyecto: cd tu-repositorio
-
-1. Abrir el archivo index.html en cualquier navegador web.
-
-______________________________________________________________________
-
 2026 Tu Comida Compilada. Todos los derechos reservados.
