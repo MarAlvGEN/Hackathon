@@ -12,51 +12,81 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <button class="btn-cart" type="button" data-bs-toggle="offcanvas" data-bs-target="#carritoLateral"><i
-            class="bi bi-cart"></i> </button>
-    <div class="offcanvas offcanvas-end " id="carritoLateral" style="width: 500px">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title">Pedidos</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    
+    <button class="btn   m-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#carritoLateral">
+        <i class="bi bi-cart"></i>  
+    </button>
+
+     
+    <div class="offcanvas offcanvas-end" id="carritoLateral" style="width: 420px;">
+        
+         
+        <div class="offcanvas-header border-bottom py-3 px-4">
+            <h5 class="offcanvas-title fw-bold text-dark fs-4">Tu pedido</h5>
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas"></button>
         </div>
-        <div class="offcanvas-body d-flex flex-column">
-            <div id="listaCarrito">
-                <div class="cart-item d-flex align-items-center" py="3" data-precio="20000" data-contida="1">
-                    <div class="flex-grow-1">
-                        <h6 class="mb-1"> Hamburguesa 200gr</h6>
-                        <p class="mb-2 text-muted small">$18.900 c/u</p>
-                        <div class="cantidad-selector">
-                            <button class="btn-menos">−</button>
-                            <span class="px-2" class="cantidad">1</span>
-                            <button class="btn-mas">+</button>
-                            <div>
-                                <button class="btn-quitar - mb-2"> <i class="bi bi-trash3"></i></button>
+
+         
+        <div class="offcanvas-body d-flex flex-column justify-content-between px-4 py-2">
+            
+             
+            <div id="listaCarrito" class="cart-items-container">
+                
+                 
+                <div class="cart-item d-flex align-items-center justify-content-between py-3 border-bottom" data-precio="18900" data-cantidad="2">
+                    <div class="d-flex align-items-center gap-3">
+                         
+                        <div class="product-img-box bg-light rounded-4 p-2 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                            🍔
+                        </div>
+                        <div>
+                            <h6 class="mb-1 fw-semibold text-dark" style="font-size: 0.95rem;">Hamburguesa doble carne</h6>
+                            <p class="mb-2 text-muted" style="font-size: 0.85rem;">$18.900 c/u</p>
+                            <!-- Selector de Cantidad -->
+                            <div class="cantidad-selector d-flex align-items-center border rounded-pill px-2 py-1" style="width: fit-content;">
+                                <button class="btn-menos border-0 bg-transparent text-danger fw-bold p-0 me-2" style="font-size: 0.8rem;">−</button>
+                                <span class="cantidad px-1 fw-semibold" style="font-size: 0.85rem;">2</span>
+                                <button class="btn-mas border-0 bg-transparent text-danger fw-bold p-0 ms-2" style="font-size: 0.8rem;">+</button>
                             </div>
                         </div>
                     </div>
+                     
+                    <button class="btn-quitar border-0 bg-transparent text-muted p-0">
+                        <i class="bi bi-trash3 fs-5"></i>
+                    </button>
                 </div>
+
             </div>
-        </div>
-        <div class="pt-3 mt-2 border-top">
-            <div class="d-flex justify-content-between mb-2">
-                <span class="text-muted">Subtotal</span>
-                <span id="subtotal" class="fw-semibold">$0</span>
+
+             
+            <div class="cart-footer pt-3 border-top mt-auto">
+                <div class="d-flex justify-content-between mb-2 text-muted" style="font-size: 0.95rem;">
+                    <span>Subtotal</span>
+                    <span id="subtotal" class="fw-semibold text-dark">$78.300</span>
+                </div>
+                <div class="d-flex justify-content-between mb-3 text-muted" style="font-size: 0.95rem;">
+                    <span>Domicilio</span>
+                    <span id="domicilio" class="fw-semibold text-dark">$3.500</span>
+                </div>
+                <div class="d-flex justify-content-between mb-4 align-items-center">
+                    <span class="fw-bold fs-5 text-dark">Total</span>
+                    <span id="total" class="fw-bold fs-4 text-dark">$81.800</span>
+                </div>
+                <button class="btn btn-checkout w-100 text-white py-3 fw-bold rounded-pill shadow-sm">Ir a pagar</button>
             </div>
-            <button class="btn btn-checkout w-100 text-white">Ir a pagar</button>
+
         </div>
     </div>
-    <section class="HERO">
-        <img src="" alt="" />
-        <p></p>
-    </section>
 
-    <!-- SCRIPT DE BOOTSTRAP -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"
-        defer></script>
+    <section class="HERO container mt-4">
+     </section>
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -1,0 +1,59 @@
+/* Configuración general de la tipografía y fondo */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.cart-items-container {
+    max-height: calc(100vh - 280px);
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.cart-items-container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.cart-items-container::-webkit-scrollbar-thumb {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+}
+
+.cantidad-selector {
+    border: 1px solid #dee2e6;
+    background-color: #ffffff;
+}
+
+.cantidad-selector button {
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.cantidad-selector button:hover {
+    opacity: 0.7;
+}
+
+.btn-quitar {
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.btn-quitar:hover i {
+    color: #dc3545 !important;
+}
+
+.btn-checkout {
+    background-color: #ff441f;
+    border: none;
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-checkout:hover {
+    background-color: #e03819;
+}
+
+.btn-checkout:active {
+    transform: scale(0.98);
+}
