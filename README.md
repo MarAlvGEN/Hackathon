@@ -1,5 +1,8 @@
 # Tu Comida Compilada
 
+<img width="1302" height="491" alt="image" src="https://github.com/user-attachments/assets/33a25272-2753-4ad6-a924-67c719af465e" />
+
+
 Repositorio oficial del proyecto web Tu Comida Compilada.
 
 ______________________________________________________________________
