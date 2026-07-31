@@ -2,7 +2,6 @@
     --amarillo: #d4742c;
 }
 
-
 .container{
     background-color: #f8cb00;
     display: flex;
@@ -30,6 +29,7 @@
     margin-right: 40px;
     margin-top: 5px;
 }
+
 .footer {
     background-color: #f8cb00;
     color: #000;
