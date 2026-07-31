@@ -90,6 +90,24 @@ const productos = [
             "Esponjoso bizcocho bañado en una deliciosa mezcla de leche condensada, leche evaporada y crema de leche, cubierto con crema batida.",
         imagen: "https://www.modernhoney.com/wp-content/uploads/2024/10/Tres-Leches-Cake-18-500x500.jpg",
     },
+        {
+        id: "po3",
+        nombre: "Creme Brulee",
+        categoria: "postres",
+        precio: 10500,
+        descripcion:
+            "Cremoso postre de vainilla elaborado a base de yemas y nata, horneado lentamente y cubierto con una fina capa de azúcar caramelizada al instante para lograr ese crujido perfecto.",
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe2TclUOLs0RsOk6WEUZcCdN0SNyCDroMKVNzwvf7DUpJQgWSm3UbwYvmT",
+    },
+    {
+        id: "po4",
+        nombre: "Pastel de chocolate",
+        categoria: "postres",
+        precio: 25900,
+        descripcion:
+            "Una variante irresistible del clásico francés: pastel horneado a base de cacao fino, coronado con una crujiente capa de azúcar caramelizada al fuego que se rompe a cada cucharada.",
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC1TlUGc67RPc8pBTgn1A_YlF3IefJm_rNwL4HXzZS3w",
+    },
 ];
 
 let carrito = [];
