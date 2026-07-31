@@ -239,3 +239,39 @@ function renderizarCarrito() {
 
     elementoSubtotal.textContent = `$${subtotal.toLocaleString("es-CO")}`;
 }
+
+let filtroActivo = null;
+
+function configurarFiltros() {
+    botonesFiltro.forEach((boton) => {
+        boton.addEventListener("click", (e) => {
+            const categoria = e.currentTarget.getAttribute("data-categoria");
+
+            if (filtroActivo === categoria) {
+                filtroActivo = null;
+                removerClaseActiva();
+                mostrarProductos(productos);
+                return;
+            }
+
+            if (categoria === "todas") {
+                filtroActivo = null;
+                removerClaseActiva();
+                mostrarProductos(productos);
+            } else {
+                filtroActivo = categoria;
+                removerClaseActiva();
+                e.currentTarget.classList.add("active");
+
+                const filtrados = productos.filter(
+                    (p) => p.categoria === categoria
+                );
+                mostrarProductos(filtrados);
+            }
+        });
+    });
+}
+
+function removerClaseActiva() {
+    botonesFiltro.forEach((b) => b.classList.remove("active"));
+}
