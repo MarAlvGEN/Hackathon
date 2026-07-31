@@ -14,58 +14,82 @@
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
         />
         <link rel="stylesheet" href="./css/style.css" />
-
     </head>
     <body>
-        <header class="container-nav">
+        <header class="container-nav sticky-top">
             <nav class="navbar">
-                <h1 class="titulo">Lorem</h1>
+                <h1 class="titulo">Fast food Colombia</h1>
 
-                <button class="btn   m-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#carritoLateral">
-        <i class="bi bi-cart"></i>  
-    </button>
+                <button
+                    class="btn m-3"
+                    type="button"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#carritoLateral"
+                >
+                    <i class="bi bi-cart"></i>
+                </button>
             </nav>
         </header>
 
-
-
-     
-    <div class="offcanvas offcanvas-end" id="carritoLateral" style="width: 420px;">
-        
-         
-        <div class="offcanvas-header border-bottom py-3 px-4">
-            <h5 class="offcanvas-title fw-bold text-dark fs-4">Tu pedido</h5>
-            <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas"></button>
-        </div>
-
-         
-        <div class="offcanvas-body d-flex flex-column justify-content-between px-4 py-2">
-            
-             
-<!-- ASÍ DEBE QUEDAR EN TU HTML: -->
-<div id="listaCarrito" class="cart-items-container">
-    <!-- Deja esto vacío, JS se encargará de poner "Tu carrito está vacío" -->
-</div>
-
-             
-            <div class="cart-footer pt-3 border-top mt-auto">
-                <div class="d-flex justify-content-between mb-2 text-muted" style="font-size: 0.95rem;">
-                    <span>Subtotal</span>
-                    <span id="subtotal" class="fw-semibold text-dark">$78.300</span>
-                </div>
-                <div class="d-flex justify-content-between mb-3 text-muted" style="font-size: 0.95rem;">
-                    <span>Domicilio</span>
-                    <span id="domicilio" class="fw-semibold text-dark">$3.500</span>
-                </div>
-                <div class="d-flex justify-content-between mb-4 align-items-center">
-                    <span class="fw-bold fs-5 text-dark">Total</span>
-                    <span id="total" class="fw-bold fs-4 text-dark">$81.800</span>
-                </div>
-                <button class="btn btn-checkout w-100 text-white py-3 fw-bold rounded-pill shadow-sm">Ir a pagar</button>
+        <div
+            class="offcanvas offcanvas-end"
+            id="carritoLateral"
+            style="width: 420px"
+        >
+            <div class="offcanvas-header border-bottom py-3 px-4">
+                <h5 class="offcanvas-title fw-bold text-dark fs-4">
+                    Tu pedido
+                </h5>
+                <button
+                    type="button"
+                    class="btn-close shadow-none"
+                    data-bs-dismiss="offcanvas"
+                ></button>
             </div>
 
+            <div
+                class="offcanvas-body d-flex flex-column justify-content-between px-4 py-2"
+            >
+                <!-- ASÍ DEBE QUEDAR EN TU HTML: -->
+                <div id="listaCarrito" class="cart-items-container">
+                    <!-- Deja esto vacío, JS se encargará de poner "Tu carrito está vacío" -->
+                </div>
+
+                <div class="cart-footer pt-3 border-top mt-auto">
+                    <div
+                        class="d-flex justify-content-between mb-2 text-muted"
+                        style="font-size: 0.95rem"
+                    >
+                        <span>Subtotal</span>
+                        <span id="subtotal" class="fw-semibold text-dark"
+                            >$78.300</span
+                        >
+                    </div>
+                    <div
+                        class="d-flex justify-content-between mb-3 text-muted"
+                        style="font-size: 0.95rem"
+                    >
+                        <span>Domicilio</span>
+                        <span id="domicilio" class="fw-semibold text-dark"
+                            >$3.500</span
+                        >
+                    </div>
+                    <div
+                        class="d-flex justify-content-between mb-4 align-items-center"
+                    >
+                        <span class="fw-bold fs-5 text-dark">Total</span>
+                        <span id="total" class="fw-bold fs-4 text-dark"
+                            >$81.800</span
+                        >
+                    </div>
+                    <button
+                        class="btn btn-checkout w-100 text-white py-3 fw-bold rounded-pill shadow-sm"
+                    >
+                        Ir a pagar
+                    </button>
+                </div>
+            </div>
         </div>
-    </div>
 
         <section class="burger-hero position-relative overflow-visible py-5">
             <div class="container py-lg-5">
